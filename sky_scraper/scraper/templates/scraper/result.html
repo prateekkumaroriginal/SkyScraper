@@ -13,14 +13,29 @@
 </head>
 
 <body>
+    <div class="container my-5">
+        <form method="post" action="/">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-4">
+                    <input class="form-control" id="site" name="site" placeholder="Enter site address" type="url" required="true">
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" type="submit">Go</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% if links %}
     <div class="container">
         <div class="row">
-            <table class="table">
+            <table class="table table-bordered border-secondary">
                 <thead>
                     <tr class="row">
-                        <th class="col-md-1" scope="col">#</th>
-                        <th class="col-md-2" scope="col">Name</th>
-                        <th class="col-md-9" scope="col">Address</th>
+                        <th class="col-md-1 bg-dark text-white" scope="col">#</th>
+                        <th class="col-md-2 bg-dark text-white" scope="col">Name</th>
+                        <th class="col-md-9 bg-dark text-white" scope="col">Address</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +51,7 @@
             </table>
         </div>
     </div>
+    {% endif %}
 </body>
 
 </html>
